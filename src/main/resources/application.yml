@@ -1,0 +1,31 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jpashop2?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1234
+
+      # ddl-auto : DB에 자동으로 테이블 생성
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /jpaProject/
+
+logging:
+  level:
+    org.hibernate.sql: info

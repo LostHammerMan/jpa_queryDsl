@@ -7,12 +7,13 @@ spring:
     livereload:
       enabled: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jpashop2?serverTimezone=UTC&characterEncoding=UTF-8
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/querydsl
     username: root
     password: 1234
 
       # ddl-auto : DB에 자동으로 테이블 생성
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: create
@@ -20,6 +21,7 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+        use_sql_comments: true
 
 server:
   port: 8080
@@ -29,3 +31,4 @@ server:
 logging:
   level:
     org.hibernate.sql: info
+    org.hibernate.type: trace # value(?) 안 ? 확인가능

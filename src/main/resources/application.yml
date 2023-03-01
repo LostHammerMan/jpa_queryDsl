@@ -6,14 +6,20 @@ spring:
   devtools:
     livereload:
       enabled: true
-  datasource:
+#  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/querydsl
+#    url: jdbc:mysql://localhost:3306/querydsl
+#    username: root
+#    password: 1234
+
+      # ddl-auto : DB에 자동으로 테이블 생성
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://localhost:3306/querydsl
     username: root
     password: 1234
 
-      # ddl-auto : DB에 자동으로 테이블 생성
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: create
@@ -22,6 +28,8 @@ spring:
         show_sql: true
         format_sql: true
         use_sql_comments: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
 
 server:
   port: 8080
@@ -30,5 +38,8 @@ server:
 
 logging:
   level:
+
     org.hibernate.sql: info
-    org.hibernate.type: trace # value(?) 안 ? 확인가능
+    # org.hibernate.type: trace # value(?) 안 ? 확인가능
+
+

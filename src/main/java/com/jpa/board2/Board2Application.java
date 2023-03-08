@@ -12,12 +12,12 @@ public class Board2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Board2Application.class, args);
+
 	}
 
-	//
-	/*@Bean
+	@Bean
 	JPAQueryFactory jpaQueryFactory(EntityManager em){
 		return new JPAQueryFactory(em);
-	}*/
+	}
 
 }

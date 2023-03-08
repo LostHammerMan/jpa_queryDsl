@@ -3,7 +3,6 @@ package com.jpa.board2.controller;
 import com.jpa.board2.entity.Member;
 import com.jpa.board2.entity.Team;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,14 +12,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Profile("local") // profile 이 'local' 인 경우에만 동작
-@ComponentScan
+@Component
 @RequiredArgsConstructor
 public class InitMember {
 
     private final InitMemberService initMemberService;
 
     // 실행
-    @PostConstruct
+    @PostConstruct // 스프링 라이프 cycle 때문에 @transactional 사용 불가 --> 따로 분리
     public void init(){
         initMemberService.init();
     }
